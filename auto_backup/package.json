@@ -1,0 +1,16 @@
+{
+  "name": "auto_backup",
+  "description": "For backup data in main database to other database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  }
+}

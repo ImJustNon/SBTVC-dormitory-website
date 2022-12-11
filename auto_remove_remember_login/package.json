@@ -1,0 +1,15 @@
+{
+  "name": "auto_remove_remember_login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "chalk": "~4.1.2",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  }
+}
