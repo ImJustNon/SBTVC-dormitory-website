@@ -1,0 +1,84 @@
+<% const { 
+    prefix,
+    name,
+    lastname,
+    dorm_number,
+    room_number,
+    student_phone_number,
+    reg_type,
+    leave_date,
+    leave_time,
+    leave_for,
+    come_date,
+    come_time,
+    total_leave_date,
+    traveled_by,
+    parent_name,
+    parent_lastname,
+    parent_phone_number,
+    filename,
+    uploadfile,
+    timestamp, 
+} = form_info; %>
+
+<div class="container">
+    <div class="card text-black bg-transparent mb-12 border-dark border-3 rounded-3" style="max-width: 100rem;">
+        <div class="card-body bg-transparent">
+            <h4 align="center">ฟอร์มล่าสุด</h4>
+            <!-- สำหรับ desktop -->
+            <img class="photo_desktop" align="right" src="<%= uploadfile %>" alt="asdasd.asdas">
+
+            <p class="student_info"><i class="fa-solid fa-user"></i> ข้อมูลนักเรียน</p>
+            <span>ชื่อ : <%= prefix %> <%= name %></span> 
+            <span>นามสกุล : <%= lastname %></span><br>
+            <span>หอที่ : <%= dorm_number %></span>
+            <span>ห้องที่ : <%= room_number %></span><br>
+            <span>เบอร์โทรศัพท์ : <%= student_phone_number %></span>
+            <p class="reg_type"><i class="fa-solid fa-graduation-cap"></i> สาขาวิชา</p>
+            <span>สาขา : <%= reg_type %></span>
+            <p class="leave_come"><i class="fa-solid fa-car"></i> ข้อมูลเข้า-ออกหอพัก</p>
+            <span>วันที่ออก : <%= leave_date %></span>
+            <span>ออกเวลา : <%= leave_time %></span><br>
+            <span>เข้าวันที่ : <%= come_date %></span>
+            <span>เข้าเวลา : <%= come_time %></span><br>
+            <span>เหตุผล : <%= leave_for %></span>
+            <span>รวมเป็นเวลา (วัน) : <%= total_leave_date %></span><br>
+            <span>เดินทางโดย : <%= traveled_by %></span>
+            <p class="leave_come"><i class="fa-solid fa-person-breastfeeding"></i> ข้อมูลผู้ปกครอง</p>
+            <span>ชื่อผู้ปกครอง : <%= parent_name %> <%= parent_lastname %></span><br> <!-- ชื่อ + นามสกุล -->
+            <span>ชื่อพ่องชื่อแม่งมึงไงไอ้ควย : <%= parent_phone_number %></span>
+            <p class="timestamp"><i class="fa-regular fa-clock"></i> ส่งฟอร์มเมื่อ : <%= timestamp %></p>
+            <!-- สำหรับมือถือ -->
+            <img class="photo_mobile" align="right" src="<%= uploadfile %>" alt="<%= filename %>">
+
+            <form id="back_in_form" method="post">
+                <input type="hidden" name="back_in" value="true">
+                <button class="btn btn-success btn-lg" type="button" id="back_in_btn">กลับมาเเล้ว</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("back_in_btn").addEventListener("click", function() {
+        Swal.fire({
+            icon: 'warning',
+            title: 'กดปุ่มยืนยันถ้ากลับมาถึงหอพักเเล้ว',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'ยืนยัน',
+        }).then(async(result) => {
+        /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'ส่งเรียบร้อย',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500,
+                }).then(async(result) => {
+                    document.getElementById("back_in_form").submit();
+                });
+            }
+        });
+    });
+</script>

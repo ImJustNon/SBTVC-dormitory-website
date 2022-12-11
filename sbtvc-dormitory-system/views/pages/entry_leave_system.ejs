@@ -1,0 +1,241 @@
+<div class="container">
+
+	<!-- เริ่มฟอร์ม ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+	<form class="row g-3 needs-validation" method="post" id="form1" name="form1" onsubmit="handleFormSubmit(this)">
+
+		<!-- กรอกข้อมูลอัตโนมัติ-->
+		<div id="auto_div"></div>
+
+		<!-- <center><button class="btn btn-success btn-lg" type="button" id="auto_btn" style="visibility: hidden;">กรอกข้อมูลอัตโนมัติ</button></center> -->
+
+		<!-- ขอมูลนักเรียน / นักศึกษา -->
+		<span style="font-size: 1.5em; color: rgb(0, 0, 0);"><i class="fas fa-user"></i> ข้อมูลนักเรียน</span>
+		<div class="col-md-2">
+		<label for="prefix" class="form-label">คำนำหน้า</label>
+			<select class="form-select" name="prefix" id="prefix" required>
+				<option selected disabled value="">เลือก...</option>
+				<option>เด็กชาย</option>
+				<option>เด็กหญิง</option>
+				<option>นาย</option>
+				<option>นางสาว</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<label for="name" class="form-label">ชื่อ</label>
+			<input type="text" class="form-control" name="name" id="name" required>
+		</div>
+		<div class="col-md-2">
+			<label for="lastname" class="form-label">นามสกุล</label>
+			<input type="text" class="form-control" name="lastname" id="lastname" required>
+		</div>	
+		<div class="col-md-2">
+			<label for="dorm_number" class="form-label">หอที่</label>
+			<input type="text" class="form-control" name="dorm_number" id="dorm_number" required>
+		</div>
+		<div class="col-md-2">
+			<label for="room_number" class="form-label">เลขที่ห้อง</label>
+			<input type="text" class="form-control" name="room_number" id="room_number" required>  
+		</div>
+		<div class="col-md-3">
+			<label for="student_phone_number" class="form-label">เบอร์โทรศัพท์ (นักเรียน)</label>
+			<input type="tel" class="form-control" name="student_phone_number" id="student_phone_number" maxlength="10" pattern="[0-9]{10}" placeholder="0xxxxxxxxx" required><br>
+		</div>
+
+		<!-- ข้อมูลสาขา -->
+		<span style="font-size: 1.5em; color: rgb(0, 0, 0);"><i class="fa-sharp fa-solid fa-graduation-cap"></i> สาขาวิชา</span>
+		<div class="col-md-5">
+			<select class="form-select" name="reg_type" id="reg_type" required>
+				<option selected disabled value="">เลือก...</option>
+				<option>เทคโนโลยีสารสนเทศกำลัง</option>
+				<option>เมคคาทรอนิกส์</option>
+				<option>เทคโนโลยีไฟฟ้า</option>
+				<option>พรีเมียม / KOSEN</option>
+				<option>อิเล็กทรอนิกส์</option>
+			</select><br>
+		</div>
+		
+		<!-- ข้อมูลออกหอพัก -->
+		<span style="font-size: 1.5em; color: rgb(0, 0, 0);"><i class="fa-solid fa-car"></i> เข้า-ออกหอพัก</span>
+		<div class="col-md-3">
+			<label for="leave_date" class="form-label">ออกวันที่</label>
+			<input type="date" class="form-control" name="leave_date" id="leave_date" required>  
+		</div>
+		<div class="col-md-3">
+			<label for="leave_date" class="form-label">ออกเวลา</label>
+			<input type="time" class="form-control" name="leave_time" id="leave_time" required>  
+		</div>
+		<div class="col-md-5">
+			<label for="leave_for" class="form-label">ขออนุญาตออกหอพักเพื่อ</label>
+			<input type="text" class="form-control" name="leave_for" id="leave_for" required>  
+		</div>
+		<!-- ข้อมูลเข้าหอพัก -->
+		<div class="col-md-3">
+			<label for="come_date" class="form-label">เข้าวันที่</label>
+			<input type="date" class="form-control" name="come_date" id="come_date" required>  
+		</div>
+		<div class="col-md-3">
+			<label for="come_date" class="form-label">เข้าเวลา</label>
+			<input type="time" class="form-control" name="come_time" id="come_time" required>  
+		</div>
+		<div class="col-md-2">
+			<label for="tolal_leave_date" class="form-label">รวมเป็นเวลา (วัน)</label>
+			<input type="text" class="form-control" name="total_leave_date" id="total_leave_date" required>  
+		</div><br>
+		<div class="col-md-3">
+			<label for="traveled_by" class="form-label">เดินทางโดย</label>
+			<select class="form-select" name="traveled_by" id="traveled_by" required>
+			   <option selected disabled value="">เลือก...</option>
+			   <option>ด้วยตัวเอง</option>
+			   <option>ผู้ปกครองมารับ</option>
+			</select><br>
+		</div>
+		
+		<!--	ข้อมูลผู้ปกครอง -->
+		<span style="font-size: 1.5em; color: rgb(0, 0, 0);"><i class="fa-solid fa-person-breastfeeding"></i> ข้อมูลผู้ปกครอง</span>
+		<div class="col-md-2">
+			<label for="parent_name" class="form-label">ชื่อ</label>
+			<input type="text" class="form-control" name="parent_name" id="parent_name" required>
+		</div>
+		<div class="col-md-2">
+			<label for="parent_lastname" class="form-label">นามสกุล</label>
+			<input type="text" class="form-control" name="parent_lastname" id="parent_lastname" required>
+		</div>
+		<div class="col-md-2">
+			<label for="parent_phone_number" class="form-label">เบอร์โทรศัพท์ผู้ปกครอง</label>
+			<input type="tel" class="form-control" name="parent_phone_number" id="parent_phone_number" maxlength="10" pattern="[0-9]{10}" placeholder="0xxxxxxxxx"  required><br>
+		</div>
+
+		<!-- อัพโหลดไฟล์ -->
+		<div class="row">
+			<div class="col-md-4">
+			<h4><i class="fa-solid fa-upload"></i> อัปโหลดหลักฐานการออกจากหอพัก</h4>
+			<!-- <h6 class="prompt text-danger">เฉพาะไฟล์ .JPG (ภาพ) เท่านั้น  ระบบไม่รองรับไฟล์ .PDF และ .PNG</h6> -->
+				<input type="file" class="form-control" name="filename" id="filename" accept="image/*" onchange="getLastModifiedDate()" required><br>
+				<input type="hidden" name="uploadfile" id="uploadfile">
+				<!-- <pre id="fileContent"></pre> -->
+			</div>
+		</div>
+		
+		<center><h4>หมายเหตุ : ข้าพเจ้าฯ จะปฏิบัติตามกฎระเบียบของหอพักฯ เเละเดินทางกลับเข้าหอพักฯ ตรงตามเวลาที่ระบุไว้ข้างต้นเเละหากข้าพเข้ามีเหตุขัดข้องประการใดซึ่งทำให้การเดินทางช้ากว่ากำหนด ข้าพเข้าจะโทรศัพท์เเจ้งหัวหน้างานสวัสดิการเเละครูเเม่บ้านหอพักทราบ</h4></center>
+
+		<!-- Submit btn -->
+		<div class="col-12">
+			<center><button class="btn btn-success btn-lg" type="submit" id="submit_btn" disabled>บันทึกข้อมูล</button></center>
+		</div>
+	</form>
+</div>
+
+<% if(form_data){ %>
+	<script type="text/javascript">
+		// หากมีข้อมูลอยู่ให้เเสดงปุ่มกรอกอัตโนมัติ
+	document.getElementById("auto_div").innerHTML = ' <center><button class="btn btn-success btn-lg auto_insert_btn" type="button" id="auto_btn" style="visibility": hidden;">กรอกข้อมูลอัตโนมัติ</button></center> ';
+
+	document.getElementById('auto_btn').onclick = function() {
+		document.getElementById("prefix").value = "<%= form_data.prefix %>";
+		document.getElementById("name").value = "<%= form_data.student_name %>";
+		document.getElementById("lastname").value = "<%= form_data.student_lastname %>";
+		document.getElementById("dorm_number").value = "<%= form_data.dorm_number %>";
+		document.getElementById("room_number").value = "<%= form_data.room_number %>";
+		document.getElementById("student_phone_number").value = "<%= form_data.student_phone_number %>";
+		document.getElementById("reg_type").value = "<%= form_data.reg_type %>";
+		document.getElementById("traveled_by").value = "<%= form_data.traveled_by %>";
+		document.getElementById("parent_name").value = "<%= form_data.parent_name %>";
+		document.getElementById("parent_lastname").value = "<%= form_data.parent_lastname %>";
+		document.getElementById("parent_phone_number").value = "<%= form_data.parent_phone_number %>";
+	}
+	</script>
+<% } %>
+
+
+
+
+<script type="text/javascript" >
+function getLastModifiedDate() {
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+
+    var file = document.getElementById('filename').files[0];
+    if (file) {
+		/* 	0 = วัน 
+			1 = เดือน
+			2 = วันที่
+			3 = ปี 
+		*/
+		// example output : ['Thu', 'Nov', '24', '2022', '19:26:53', 'GMT+0700', '(Indochina', 'Time)']
+
+		let current_date_array = String(new Date()).trim().split(/ +/g);
+		let file_date_array = String(new Date(file.lastModified)).trim().split(/ +/g);
+		if(current_date_array[1] == file_date_array[1] && current_date_array[2] == file_date_array[2] && current_date_array[3] == file_date_array[3]){
+			/*
+			if(document.getElementById("checkFileModifiedDate").childNodes.length > 0){
+				document.getElementById("checkFileModifiedDate").innerHTML = "";
+			}
+			document.getElementById("checkFileModifiedDate").style.color = "#0af521"; // green
+			document.getElementById("checkFileModifiedDate").innerHTML = "สามารถใช้ภาพนี้ได้"
+			*/
+			document.getElementById("submit_btn").disabled = false;
+		}
+		else {
+			if(!document.getElementById("submit_btn").disabled){
+				document.getElementById("submit_btn").disabled = true;
+			}
+			Swal.fire({
+  				position: 'center',
+  				icon: 'error',
+  				title: 'ภาพที่ถ่ายจะต้องมีอายุไม่เกิน 1 วันน่ะ',
+  				showConfirmButton: false,
+  				timer: 2500
+			});
+			/*
+			document.getElementById("checkFileModifiedDate").style.color = "#f50a0a"; // red
+			document.getElementById("checkFileModifiedDate").innerHTML = "❌ ภาพที่ถ่ายจะต้องมีอายุไม่เกิน 1 วันน่ะ"
+			*/
+		}
+    }
+}
+</script>
+
+
+<!-- อ่านไฟล์เเล้วเปลียนเป็น base64 เเล้วส่งกลับ-->
+<script type="text/javascript">
+function readFile() {
+  	if (!this.files || !this.files[0]) return;
+    const FR = new FileReader();
+	FR.addEventListener("load", function(evt) {
+		// ส่ง Base64 กลับ
+		document.getElementById("uploadfile").value = evt.target.result;
+	}); 
+  	FR.readAsDataURL(this.files[0]);
+}
+
+document.querySelector("#filename").addEventListener("change", readFile);
+</script>
+
+
+<script type="text/javascript">
+	// คำนวนวันที่ทั้งหมด
+		const date_diff_indays = function(date1, date2) {
+			// รับมาในเบบ '12/05/2022', '12/06/2022' mm/dd/yyyy
+			let dt1 = new Date(date1);
+			let dt2 = new Date(date2);
+			return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
+		}
+		let leave_date = "";
+		let come_date = "";
+		
+		document.getElementById("leave_date").addEventListener("input", function(input){
+			leave_date = input.target.value.trim().split(/-+/); //จะเปลี่ยนค่าเป็น ประมาณนี้ ในรูปเเบบ array ['2022', '12', '06']
+		});
+		document.getElementById("come_date").addEventListener("input", function(input){
+			come_date = input.target.value.trim().split(/-+/); //จะเปลี่ยนค่าเป็น ประมาณนี้ ในรูปเเบบ array ['2022', '12', '06']  => yyyy mm dd
+		});
+
+		
+		document.getElementById("total_leave_date").addEventListener("click", function(){
+			if(leave_date.length > 0 && come_date.length > 0){
+				document.getElementById("total_leave_date").value = date_diff_indays(`${leave_date[1]}/${leave_date[2]}/${leave_date[0]}`, `${come_date[1]}/${come_date[2]}/${come_date[0]}`);
+			}
+		});
+
+</script>
+

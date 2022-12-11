@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- CSS file-->
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/login_favicon.svg">
+</head>
+<body>
+    <div class="form">
+    <p>เข้าสู่ระบบ</p>
+        <form method="post">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <button type="submit" id="submit_btn">login</button>
+            <% if(loginError !== null){ %>
+                <p class="loginError"><%= loginError %></p>
+            <% } %>
+            <p class="message">
+                หมายเหตุ : <br>
+                Username : เลขประจำตัวนักเรียน <br>
+                Password : วว/ดด/ปปปป เกิด
+            </p>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        // ถ้าคลิกปุ่มให้ ปิดการใช้งานปุ่ม
+        document.getElementById('submit_btn').onclick = function() {
+            setTimeout(() =>{
+                document.getElementById('submit_btn').disabled = true;
+            }, 0.1 * 1000);
+        }
+    </script>
+</body>
+</html>

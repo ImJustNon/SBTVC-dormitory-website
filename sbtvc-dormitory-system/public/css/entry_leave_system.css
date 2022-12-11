@@ -1,0 +1,92 @@
+
+.container {
+    margin-bottom: 50px;
+}
+.col-12{
+	margin-top: 50px;
+}
+.itim {
+  font-family: 'Itim', sans-serif;
+}
+.kanit {
+  font-family: 'Kanit', sans-serif;
+}
+.mali {
+  font-family: 'Mali', sans-serif;
+}
+.mitr {
+  font-family: 'Mitr', sans-serif;
+}
+.pattaya {
+  font-family: 'Pattaya', sans-serif;
+}
+.prompt {
+  font-family: 'Prompt', sans-serif;
+}
+.questrial {
+  font-family: 'Questrial', sans-serif;
+}
+.sarabun {
+  font-family: 'Sarabun', sans-serif;
+}
+.sriracha {
+  font-family: 'Sriracha', sans-serif;
+}
+@font-face {
+  font-family: 'Sarabun';
+}
+body { 
+    font-family: 'Prompt' !important; 
+    background-color: rgb(251, 255, 255);;
+}
+
+::placeholder {
+  color: peachpuff;
+  font-size: 15px;
+  text-align: center; 
+}
+.error{
+  color:#F00;
+}
+.error.true{
+  color:#6bc900;
+}
+#button {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+.auto_insert_btn {
+  font-size: 15px;
+}

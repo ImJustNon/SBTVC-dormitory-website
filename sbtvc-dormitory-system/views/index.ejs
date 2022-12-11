@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+
+
+    <!-- css -->
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- index -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- Slide Bar -->
+    <link rel="stylesheet" href="../css/slide-bar.css">
+    <!-- header -->
+    <link rel="stylesheet" href="../css/header.css">
+    
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" charset="utf-8"></script>
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- select From page-->
+    <% if(title == "HOME"){ %>
+        <link rel="stylesheet" href="../css/home.css">
+        <link rel="icon" type="image/x-icon" href="../assets/images/home_favicon.svg">
+        <!-- swiperjs -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <% } else if(title == "Entry-Leave-System"){ %>
+        	<!-- ICON Font Awesome -->
+        <script src="https://kit.fontawesome.com/ad42651166.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Itim|Kanit|Mali|Mitr|Niramit|Pattaya|Prompt|Questrial|Sarabun|Sriracha' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../css/entry_leave_system.css">
+        <!-- set favicon -->
+        <link rel="icon" type="image/x-icon" href="../assets/images/dorm_favicon.svg">
+    <% } else if(title == "Authorization-Form"){ %>
+        <!-- CSS file -->
+        <link rel="stylesheet" href="../css/authorization_form.css">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <!-- set favicon -->
+        <link rel="icon" type="image/x-icon" href="../assets/images/form_favicon.svg">
+    <% } %>
+
+
+</head>
+<body>
+    <%- include("partials/header.ejs") %> <!-- header -->
+    <%- include("partials/slide-bar.ejs") %> <!-- slide-bar -->
+
+    <!-- เลือก title บนหน้าเว็ป -->
+    <% let page_title%>
+    <% if(title == "HOME"){ %>
+        <% page_title = "หน้าหลัก" %>
+    <% } else if(title == "Entry-Leave-System"){ %>
+        <% page_title = "เเบบฟอร์มการเข้า-ออกหอพัก" %>
+    <% } else if(title == "Authorization-Form"){ %>
+        <% page_title = "แบบฟอร์มขออนุญาตออกจากหอพัก" %>
+    <% } %>
+
+    <center><p class="page-title"><%= page_title %></p></center>
+    <hr>
+    <br>
+
+    <!-- เลือก render หน้าเว็ป -->
+    <% if(title == "HOME"){ %> <!-- หน้าหลัก -->
+        <%- include("pages/home.ejs") %>
+    <% } else if(title == "Entry-Leave-System"){ %> <!-- หน้ากรอกเเบฟอร์ม -->
+        <%- include("pages/entry_leave_system.ejs") %>
+    <% } else if(title == "Authorization-Form"){ %> <!-- หน้าเเสดงเเบบฟอร์ม -->
+        <%- include("pages/authorization_form.ejs") %>
+    <% } %>
+
+<style>
+hr {
+    background-size: 4px;
+    border-top: 2px solid #FFF0F2;
+    border-color: #FFF0F2;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2px;
+}
+.page-title {
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+}
+@media (max-width : 900px) {
+    .page-title {
+        font-size: 15px;
+    }
+}
+</style>   
+</body>
+</html>

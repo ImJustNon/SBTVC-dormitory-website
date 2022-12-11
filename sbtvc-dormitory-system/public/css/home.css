@@ -1,0 +1,34 @@
+hr {
+    max-width: 80%;
+    margin: auto;
+}
+.container {
+    margin: 20px;
+}
+
+
+/* slide-image */
+.swiper {
+    width: 75%;
+    height: fit-content;
+    border-radius: 15px;
+}
+
+.swiper-slide img {
+    width: 100%;
+}
+
+.swiper .swiper-button-prev, .swiper .swiper-button-next {
+    color: white;
+}
+
+.swiper .swiper-pagination-bullet-active {
+    background: white;
+}
+
+@media (max-width : 900px) {
+    .swiper {
+        width: 100%;
+        height: fit-content;
+    }
+}
